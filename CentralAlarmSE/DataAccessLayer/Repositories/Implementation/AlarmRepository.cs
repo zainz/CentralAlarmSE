@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,10 @@ namespace DataAccessLayer.Repositories.Implementation
     {
         public Task Create(Alarm item)
         {
-            throw new NotImplementedException(); // HEJ KIM JEG KONTAKTER DATABASEN
+            using (var database = new AlarmWebServiceEntities())
+            {
+                return database.Alarms.FirstOrDefault(x => x.GUID == item.Guid);
+            }
         }
         
         public Task<List<Alarm>> ReadAsync()
