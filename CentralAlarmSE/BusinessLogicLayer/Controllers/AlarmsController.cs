@@ -1,23 +1,28 @@
-﻿using BusinessLogicLayer.Gateways;
-using BusinessLogicLayer.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 using Utility;
+using Utility.DataTransferObjects;
 
 namespace BusinessLogicLayer.Controllers
 {
-    public class AlarmsController : Controller
+    public class AlarmsController : ApiController
     {
-        private AlarmGateway _gateway = new AlarmGateway();
+        private readonly Facade facade;
 
-        // GET: Alarms
-        public ActionResult Index()
+        public AlarmsController()
         {
-            var model = new AlarmViewModel { AllAlarms = _gateway.AllAlarms() };
-            return View();
+            facade = new Facade();
+        }
+
+        [HttpGet]
+        [Route("api/alarm")]
+        public List<Alarm> Details()
+        {
+            return facade.GetAlarmGateway().AllAlarms();
         }
     }
 }

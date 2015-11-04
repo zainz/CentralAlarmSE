@@ -11,13 +11,13 @@ namespace PresentationLayer.Controllers
 {
     public class AlarmsController : Controller
     {
-        private AlarmGateway _gateway = new AlarmGateway();
+        private AlarmGateway gateway = new AlarmGateway();
 
         // GET: Alarms
         public ActionResult Index()
         {
-            var model = new AlarmViewModel { AllAlarms = _gateway.AllAlarms() };
-            return View();
+            var model = new AlarmViewModel { AllAlarms = gateway.AllAlarms() };
+            return View(model);
         }
     }
 }

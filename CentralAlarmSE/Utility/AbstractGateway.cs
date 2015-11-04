@@ -10,7 +10,12 @@ namespace Utility
 {
     public abstract class AbstractGateway
     {
-        internal Uri uri = new Uri("");
+        internal Uri uri;
+
+        protected AbstractGateway(Uri uri)
+        {
+            this.uri = uri;
+        }
 
         public HttpClient GetClient()
         {
