@@ -21,7 +21,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AlarmWebServiceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Alarms">
+        <EntityType Name="Alarm">
           <Key>
             <PropertyRef Name="GUID" />
           </Key>
@@ -30,7 +30,7 @@
           <Property Name="Priority" Type="Int32" />
         </EntityType>
         <EntityContainer Name="AlarmWebServiceEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Alarms" EntityType="Self.Alarms" />
+          <EntitySet Name="Alarms" EntityType="Self.Alarm" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -39,7 +39,7 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AlarmWebServiceModelStoreContainer" CdmEntityContainer="AlarmWebServiceEntities">
           <EntitySetMapping Name="Alarms">
-            <EntityTypeMapping TypeName="AlarmWebServiceModel.Alarms">
+            <EntityTypeMapping TypeName="AlarmWebServiceModel.Alarm">
               <MappingFragment StoreEntitySet="Alarms">
                 <ScalarProperty Name="GUID" ColumnName="GUID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -61,7 +61,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

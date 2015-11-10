@@ -9,7 +9,7 @@ namespace DataAccessLayer.Repositories
     public interface IRepository<T>
     {
         Task Create(T item);
-        Task<List<T>> ReadAsync();
+        List<T> ReadAsync();
         Task<T> ReadAsync(Guid guid);
         Task<T> Delete(T item);
     }

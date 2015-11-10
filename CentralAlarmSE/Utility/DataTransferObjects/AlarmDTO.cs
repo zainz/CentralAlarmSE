@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Utility.DataTransferObjects
 {
-    public class Alarm
+    public class AlarmDTO
     {
         #region properties
         private Guid _guid;
@@ -26,7 +26,7 @@ namespace Utility.DataTransferObjects
         /// <param name="guid">GUID column as read from SqlDataReader</param>
         /// <param name="name">Name column as read from SqlDataReader</param>
         /// <param name="priority">Priority column as read from SqlDataReader</param>
-        public Alarm(Guid guid, String name, int priority)
+        public AlarmDTO(Guid guid, String name, int priority)
         {
             this._guid = guid;
             this._name = name;

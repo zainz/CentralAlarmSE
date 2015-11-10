@@ -25,6 +25,6 @@ namespace DataAccessLayer.Database
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Alarms> Alarms { get; set; }
+        public virtual DbSet<Alarm> Alarms { get; set; }
     }
 }

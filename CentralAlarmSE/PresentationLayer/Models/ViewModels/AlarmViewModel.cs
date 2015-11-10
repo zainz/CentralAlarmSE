@@ -8,7 +8,7 @@ namespace PresentationLayer.Models
 {
     public class AlarmViewModel
     {
-        public List<Alarm> AllAlarms { get; set; }
-        public Alarm SelectedAlarm { get; set; }
+        public List<AlarmDTO> AllAlarms { get; set; }
+        public AlarmDTO SelectedAlarm { get; set; }
     }
 }

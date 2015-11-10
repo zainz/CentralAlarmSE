@@ -1,10 +1,10 @@
-﻿using System;
+﻿using DataAccessLayer.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Utility.DataTransferObjects;
 
 namespace DataAccessLayer.Controllers
 {
@@ -21,7 +21,7 @@ namespace DataAccessLayer.Controllers
         [Route("api/alarm")]
         public List<Alarm> Details()
         {
-            return facade.GetAlarmRepository().ReadAsync().Result;
+            return facade.GetAlarmRepository().ReadAsync();
         }
 
         [HttpPost]

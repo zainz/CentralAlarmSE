@@ -20,9 +20,16 @@ namespace BusinessLogicLayer.Controllers
 
         [HttpGet]
         [Route("api/alarm")]
-        public List<Alarm> Details()
+        public List<AlarmDTO> Details()
         {
-            return facade.GetAlarmGateway().AllAlarms();
+            return facade.GetAlarmGateway().Read();
+        }
+
+        [HttpPost]
+        [Route("api/alarm")]
+        public void Create(AlarmDTO alarm)
+        {
+            facade.GetAlarmGateway().Create(alarm);
         }
     }
 }

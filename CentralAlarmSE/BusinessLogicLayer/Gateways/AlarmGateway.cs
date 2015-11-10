@@ -17,9 +17,14 @@ namespace BusinessLogicLayer.Gateways
 
         }
 
-        public List<Alarm> AllAlarms()
+        public List<AlarmDTO> Read()
         {
-            return GetClient().GetAsync("api/alarm").Result.Content.ReadAsAsync<List<Alarm>>().Result;
+            return GetClient().GetAsync("api/alarm").Result.Content.ReadAsAsync<List<AlarmDTO>>().Result;
+        }
+
+        public void Create(AlarmDTO alarm)
+        {
+            GetClient().PostAsJsonAsync("api/alarm", alarm);
         }
     }
 }

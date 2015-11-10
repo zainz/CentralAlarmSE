@@ -12,7 +12,7 @@ namespace DataAccessLayer.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class Alarms
+    public partial class Alarm
     {
         public System.Guid GUID { get; set; }
         public string Name { get; set; }

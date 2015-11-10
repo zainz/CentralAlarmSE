@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractGateway.cs" />
-    <Compile Include="DataTransferObjects\Alarm.cs" />
+    <Compile Include="DataTransferObjects\AlarmDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

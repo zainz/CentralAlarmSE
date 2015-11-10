@@ -4,23 +4,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Utility.DataTransferObjects;
 
 namespace DataAccessLayer.Repositories.Implementation
 {
     public class AlarmRepository : IRepository<Alarm>
     {
-        public Task Create(Alarm item)
+        public async Task Create(Alarm item)
         {
             using (var database = new AlarmWebServiceEntities())
             {
-                return database.Alarms.FirstOrDefault(x => x.GUID == item.Guid);
+                database.Alarms.Add(item);
             }
         }
         
-        public Task<List<Alarm>> ReadAsync()
+        public List<Alarm> ReadAsync()
         {
-            throw new NotImplementedException();
+            using (var database = new AlarmWebServiceEntities())
+            {
+                return database.Alarms.OrderBy(x => x.Name).ToList();
+            }
         }
 
         public Task<Alarm> ReadAsync(Guid guid)

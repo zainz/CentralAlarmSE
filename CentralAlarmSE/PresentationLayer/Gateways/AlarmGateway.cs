@@ -10,9 +10,17 @@ namespace PresentationLayer.Gateways
 {
     public class AlarmGateway : AbstractGateway
     {
-        public List<Alarm> AllAlarms()
+        private static Uri uri = new Uri("http://localhost:63226/");
+
+        public AlarmGateway() : base(uri)
         {
-            return GetClient().GetAsync("api/alarm").Result.Content.ReadAsAsync<List<Alarm>>().Result;
+
+        }
+
+        public List<AlarmDTO> AllAlarms()
+        {
+           
+            return GetClient().GetAsync("api/alarm").Result.Content.ReadAsAsync<List<AlarmDTO>>().Result;
         }
     }
 }
